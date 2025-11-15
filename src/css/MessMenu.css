@@ -1,0 +1,262 @@
+/* ============================================================= */
+/*  MessMenu.css – FOOD CAROUSEL CINEMA – UNIQUE & CINEMATIC     */
+/* ============================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap');
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.mess-menu-page {
+  min-height: 100vh;
+  margin-top: 60px;
+  background: #2564eb95;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Inter', sans-serif;
+  color: #f0f0f0;
+  padding: 2rem 1rem;
+}
+
+/* Animated Grain Background */
+.grain-bg {
+  position: fixed;
+  inset: 0;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/></filter><rect width="100" height="100" filter="url(#noise)" opacity="0.15"/></svg>');
+  animation: grain 8s steps(10) infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+@keyframes grain { 0% { transform: translate(0,0); } 100% { transform: translate(10px,10px); } }
+
+/* Hero */
+.hero {
+  text-align: center;
+  margin-bottom: 3rem;
+  z-index: 2;
+  position: relative;
+}
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 4.5rem;
+  color: #ffd700;
+  letter-spacing: 2px;
+  position: relative;
+  display: inline-block;
+}
+.hero h1::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, #ffd700, transparent);
+  border-radius: 2px;
+}
+.hero p {
+  font-size: 1.3rem;
+  color: #cccccc;
+  margin-top: 1rem;
+  font-style: italic;
+}
+
+/* Controls */
+.controls {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+  z-index: 2;
+}
+.controls input,
+.controls select,
+.controls button {
+  padding: 0.7rem 1.2rem;
+  border-radius: 8px;
+  border: none;
+  font-weight: 600;
+  background: rgba(255,255,255,0.1);
+  color: white;
+  backdrop-filter: blur(8px);
+}
+.controls input::placeholder { color: #fefefe; }
+.print-btn {
+  background: #e63946;
+  color: white;
+  cursor: pointer;
+}
+.print-btn:hover { background: #d00000; }
+
+/* Carousel Container */
+.carousel-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  z-index: 1;
+  padding: 2rem 0;
+}
+.carousel-track {
+  display: flex;
+  gap: 2rem;
+  animation: scroll 45s linear infinite;
+  will-change: transform;
+}
+.carousel-track:hover { animation-play-state: paused; }
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+/* Polaroid Card */
+.polaroid {
+  flex: 0 0 320px;
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+  transform: rotate(-2deg);
+  transition: all 0.4s ease;
+  cursor: pointer;
+  position: relative;
+}
+.polaroid:nth-child(even) { transform: rotate(2deg); }
+.polaroid:hover {
+  transform: rotate(0) scale(1.08);
+  z-index: 10;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.8);
+}
+
+/* Special Day */
+.special .polaroid {
+  border: 4px solid #ffd700;
+  box-shadow: 0 0 30px rgba(255,215,0,0.6);
+}
+.special::after {
+  content: 'Special';
+  position: absolute;
+  top: -12px;
+  right: -12px;
+  background: #e63946;
+  color: white;
+  font-size: 0.8rem;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-weight: bold;
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+/* Food Image */
+.food-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 0.8rem;
+}
+
+/* Day Label */
+.day-label {
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: #1a1a2e;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Menu List */
+.menu-list {
+  font-size: 0.9rem;
+  color: #333;
+  line-height: 1.5;
+}
+.menu-list strong {
+  color: #e63946;
+  font-weight: 600;
+}
+
+/* Expanded View */
+.expanded {
+  position: fixed;
+  inset: 0;
+  background: #001d5a8e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 2rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s ease;
+}
+.expanded.show {
+  opacity: 1;
+  visibility: visible;
+}
+.expanded-card {
+  background: white;
+  max-width: 600px;
+  width: 90%;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.7);
+  animation: zoomIn 0.5s ease;
+}
+@keyframes zoomIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+.expanded-img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+.expanded-content {
+  padding: 2rem;
+  color: #1a1a2e;
+}
+.close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: #ef4444 !important;
+  color: #ffffff !important;
+  border: 2px solid #ffffff !important;
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 50% !important;
+  font-size: 1.5rem !important;
+  font-weight: 900 !important;
+  cursor: pointer !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.6) !important;
+  transition: all 0.3s ease !important;
+  z-index: 10 !important;
+}
+.close-btn:hover {
+  background: #dc2626 !important;
+  transform: scale(1.1) rotate(90deg) !important;
+  box-shadow: 0 6px 16px rgba(239, 68, 68, 0.8) !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .carousel-track { animation-duration: 30s; gap: 1.5rem; }
+  .polaroid { flex: 0 0 260px; }
+  .hero h1 { font-size: 3rem; }
+}

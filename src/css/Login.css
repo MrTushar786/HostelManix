@@ -1,0 +1,273 @@
+/* ============================================================= */
+/*  Login.css – Fixed Select with Custom Dropdown (Full Control) */
+/* ============================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body, html {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  font-family: 'Inter', sans-serif;
+}
+
+.main {
+  height: 100vh;
+  width: 100vw;
+  background: #2564eb68;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 2rem;
+  overflow: hidden;
+}
+
+/* Particles */
+.main::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="%23ffffff20"><animate attributeName="opacity" values="0;1;0" dur="3s" repeatCount="indefinite"/></circle></svg>');
+  background-repeat: repeat;
+  pointer-events: none;
+  animation: particleFloat 25s linear infinite;
+  opacity: 0.6;
+  z-index: 0;
+}
+@keyframes particleFloat {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-100px); }
+}
+
+.main > h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  background: linear-gradient(to right, #ffffff, #e0f2fe);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 2rem;
+  text-shadow: 0 2px 4px rgba(0,0,0,.1);
+  z-index: 2;
+  animation: fadeInDown 0.8s ease-out;
+}
+
+.main-item {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(14px);
+  border-radius: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  width: 100%;
+  max-width: 420px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  animation: slideUp 0.7s ease-out forwards;
+  opacity: 0;
+  z-index: 2;
+  transform: perspective(800px) rotateX(6deg);
+  transition: transform 0.4s ease;
+}
+.main-item:hover {
+  transform: perspective(800px) rotateX(0deg) translateY(-6px);
+}
+
+.main-top {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 1.75rem;
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+.main-top h1 {
+  font-size: 2rem;
+  color: #ffffff;
+  font-weight: 700;
+  text-shadow: 0 1px 3px rgba(0,0,0,.2);
+}
+
+.main-bottom {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+.main-bottom p {
+  text-align: center;
+  color: #e0f2fe;
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+
+/* ============ CUSTOM SELECT ============ */
+.custom-select {
+  position: relative;
+  width: 100%;
+}
+
+.select-selected {
+  padding: 0.9rem 1.2rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(4px);
+}
+.select-selected:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: #60a5fa;
+}
+.select-selected:focus {
+  outline: none;
+  border-color: #60a5fa;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.3);
+}
+
+.select-arrow {
+  font-size: 0.8rem;
+  transition: transform 0.3s ease;
+}
+.select-selected.open .select-arrow {
+  transform: rotate(180deg);
+}
+
+.select-options {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: rgba(30, 64, 175, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 1rem;
+  margin-top: 0.5rem;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 10px 25px rgba(0,0,0,.2);
+  z-index: 10;
+  overflow: hidden;
+  animation: dropdownFade 0.3s ease-out;
+}
+@keyframes dropdownFade {
+  from { opacity: 0; transform: translateY(-10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.select-option {
+  padding: 0.9rem 1.2rem;
+  color: #ffffff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.select-option:last-child {
+  border-bottom: none;
+}
+.select-option:hover {
+  background: rgba(255, 255, 255, 0.2);
+  padding-left: 1.5rem;
+}
+
+/* ============ INPUTS ============ */
+input {
+  padding: 0.9rem 1.2rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(4px);
+}
+input::placeholder {
+  color: #e0f2fe;
+  opacity: 0.8;
+}
+input:focus {
+  outline: none;
+  border-color: #60a5fa;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.3);
+}
+
+/* ============ BUTTON ============ */
+.main-bottom button {
+  margin-top: 0.5rem;
+  padding: 0.95rem;
+  background: rgba(255, 255, 255, 0.25);
+  color: white;
+  font-weight: 600;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 4px 15px rgba(0,0,0,.15);
+}
+.main-bottom button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.3), transparent);
+  transition: left 0.6s;
+}
+.main-bottom button:hover::before { left: 100%; }
+.main-bottom button:hover {
+  background: rgba(255, 255, 255, 0.35);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0,0,0,.25);
+}
+
+/* ============ ERROR ============ */
+.error-message {
+  background: rgba(254, 226, 226, 0.25);
+  color: #fca5a5 !important;
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(252, 165, 165, 0.4);
+  font-weight: 500;
+  text-align: center;
+  animation: shake 0.4s ease;
+}
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-6px); }
+  75% { transform: translateX(6px); }
+}
+
+/* ============ ANIMATIONS ============ */
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(40px) perspective(800px) rotateX(6deg); }
+  to   { opacity: 1; transform: translateY(0) perspective(800px) rotateX(0deg); }
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 480px) {
+  .main > h1 { font-size: 2.3rem; }
+  .main-item { max-width: 90%; }
+  .main-top h1 { font-size: 1.7rem; }
+  .main-bottom { padding: 1.5rem; gap: 1rem; }
+}

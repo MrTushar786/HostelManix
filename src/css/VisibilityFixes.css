@@ -1,0 +1,359 @@
+/* ============================================================= */
+/*  Global Visibility Fixes - Text, Backgrounds, Close Buttons  */
+/* ============================================================= */
+
+/* Ensure all text is visible */
+* {
+  color: inherit;
+}
+
+/* Navbar - ensure all text is white */
+.navbar,
+.navbar *,
+.navbar-logo h3,
+.nav-link,
+.nav-link-red {
+  color: #ffffff !important;
+}
+
+/* Student Dashboard - ensure all text is white */
+.dashboard,
+.dashboard *,
+.dashboard-header h1,
+.dashboard-header p,
+.card,
+.card *,
+.action-section h2,
+.chart-section h2,
+.action-section *,
+.chart-section * {
+  color: #ffffff !important;
+}
+
+/* Student pages - ensure all text is white */
+.complaint-page,
+.maintenance-page,
+.fee-status-page,
+.attendance-page,
+.leave-page,
+.mess-menu-page,
+.room-info-page {
+  color: #ffffff !important;
+}
+
+.complaint-page *,
+.maintenance-page *,
+.fee-status-page *,
+.attendance-page *,
+.leave-page *,
+.mess-menu-page *,
+.room-info-page * {
+  color: #ffffff !important;
+}
+
+/* Override for specific elements that should have different colors */
+.complaint-page .muted-text,
+.maintenance-page .muted-text,
+.fee-status-page .muted-text {
+  color: #93c5fd !important;
+}
+
+/* Force white text on dark backgrounds */
+.admin-page,
+.admin-page-content,
+.modal-card,
+.modal-center,
+.complaint-details,
+.attendance-room-modal,
+.glass-card,
+.form-card {
+  color: #ffffff !important;
+}
+
+.admin-page p,
+.admin-page span,
+.admin-page div,
+.admin-page h1,
+.admin-page h2,
+.admin-page h3,
+.admin-page h4,
+.admin-page h5,
+.admin-page h6,
+.admin-page label,
+.admin-page strong {
+  color: #ffffff !important;
+}
+
+/* Muted text should still be visible */
+.admin-page .muted-text,
+.admin-page [style*="color: #93c5fd"],
+.admin-page [style*="color: #e0f2fe"],
+.admin-page [style*="color: #bac8ff"] {
+  color: #93c5fd !important;
+}
+
+/* Ensure table text is visible */
+.admin-table td,
+.admin-table th {
+  color: #ffffff !important;
+}
+
+.admin-table td {
+  color: #ffffff !important;
+}
+
+/* Form inputs text */
+input,
+textarea,
+select {
+  color: #ffffff !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: rgba(255, 255, 255, 0.6) !important;
+  opacity: 1 !important;
+}
+
+/* Close/Cross Buttons - Make them highly visible */
+.modal-close,
+.close-btn,
+.close-details-btn,
+button[aria-label*="Close"],
+button[aria-label*="close"] {
+  background: #ef4444 !important;
+  color: #ffffff !important;
+  border: 2px solid #ffffff !important;
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 50% !important;
+  font-weight: 900 !important;
+  font-size: 1.5rem !important;
+  cursor: pointer !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.6) !important;
+  transition: all 0.3s ease !important;
+  z-index: 10 !important;
+  position: relative !important;
+}
+
+.modal-close:hover,
+.close-btn:hover,
+.close-details-btn:hover {
+  background: #dc2626 !important;
+  transform: scale(1.1) rotate(90deg) !important;
+  box-shadow: 0 6px 16px rgba(239, 68, 68, 0.8) !important;
+}
+
+.modal-close:active,
+.close-btn:active,
+.close-details-btn:active {
+  transform: scale(0.95) !important;
+}
+
+/* Resolution text - Make it highly visible */
+.resolution,
+.resolution-text,
+[class*="resolution"],
+p[style*="resolution"],
+div[style*="resolution"] {
+  background: rgba(34, 197, 94, 0.2) !important;
+  color: #86efac !important;
+  padding: 1rem !important;
+  border-radius: 12px !important;
+  border-left: 4px solid #22c55e !important;
+  font-weight: 600 !important;
+}
+
+.resolution strong,
+.resolution-text strong {
+  color: #ffffff !important;
+  font-weight: 700 !important;
+}
+
+/* Modal backgrounds - Ensure text contrast */
+.modal-card,
+.modal-center {
+  background: rgba(30, 58, 138, 0.98) !important;
+  backdrop-filter: blur(20px) !important;
+  color: #ffffff !important;
+}
+
+.modal-card *,
+.modal-center * {
+  color: #ffffff !important;
+}
+
+.modal-card strong,
+.modal-center strong {
+  color: #ffffff !important;
+  font-weight: 700 !important;
+}
+
+/* Form backgrounds */
+.complaint-form,
+.admin-page form {
+  background: rgba(255, 255, 255, 0.12) !important;
+  color: #ffffff !important;
+}
+
+.complaint-form *,
+.admin-page form * {
+  color: #ffffff !important;
+}
+
+/* Status badges - Ensure text is visible */
+.status-badge,
+.tag {
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Error messages */
+.error-message,
+.alert.error,
+[class*="error"] {
+  background: rgba(239, 68, 68, 0.2) !important;
+  color: #fca5a5 !important;
+  border: 1px solid #ef4444 !important;
+  padding: 12px !important;
+  border-radius: 8px !important;
+}
+
+/* Success messages */
+.alert.success,
+[class*="success"] {
+  background: rgba(34, 197, 94, 0.2) !important;
+  color: #86efac !important;
+  border: 1px solid #22c55e !important;
+}
+
+/* Loading text */
+.loading,
+[class*="loading"] {
+  color: #93c5fd !important;
+}
+
+/* Empty state text */
+.no-complaints,
+.no-data,
+[class*="no-"] {
+  color: #93c5fd !important;
+}
+
+/* Button text visibility */
+button {
+  color: #ffffff !important;
+  font-weight: 600 !important;
+}
+
+button:disabled {
+  opacity: 0.6 !important;
+  cursor: not-allowed !important;
+}
+
+/* Links */
+a {
+  color: #60a5fa !important;
+}
+
+a:hover {
+  color: #93c5fd !important;
+}
+
+/* Admin table specific fixes */
+.admin-table tbody tr {
+  color: #ffffff !important;
+}
+
+.admin-table tbody tr td {
+  color: #ffffff !important;
+}
+
+/* Attendance room modal */
+.attendance-room-modal * {
+  color: #ffffff !important;
+}
+
+/* Complaint details */
+.complaint-details * {
+  color: #ffffff !important;
+}
+
+.complaint-details .detail-row {
+  color: #e0f2fe !important;
+}
+
+.complaint-details .detail-row strong {
+  color: #ffffff !important;
+}
+
+/* Analytics page */
+.admin-page [style*="color: #93c5fd"] {
+  color: #93c5fd !important;
+}
+
+/* Ensure all headings are visible */
+h1, h2, h3, h4, h5, h6 {
+  color: #ffffff !important;
+  font-weight: 700 !important;
+}
+
+/* Stats cards */
+.stat-card {
+  color: #ffffff !important;
+}
+
+.stat-card strong {
+  color: #ffffff !important;
+}
+
+/* Pagination */
+[class*="pagination"] button,
+[class*="Pagination"] button {
+  color: #ffffff !important;
+}
+
+/* Dropdown options */
+select option {
+  background: #1e40af !important;
+  color: #ffffff !important;
+}
+
+select option:checked {
+  background: #3b82f6 !important;
+  color: #ffffff !important;
+}
+
+/* Textarea */
+textarea {
+  color: #ffffff !important;
+}
+
+textarea::placeholder {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+/* Fix for any transparent or low opacity text */
+[style*="opacity: 0"],
+[style*="opacity:0"] {
+  opacity: 1 !important;
+}
+
+/* Ensure resolution message is always visible */
+.resolution-message,
+[data-resolution],
+p:contains("Resolution"),
+div:contains("Resolution") {
+  background: rgba(34, 197, 94, 0.15) !important;
+  color: #86efac !important;
+  padding: 12px !important;
+  border-radius: 8px !important;
+  border-left: 3px solid #22c55e !important;
+  margin: 12px 0 !important;
+  font-weight: 500 !important;
+}
+

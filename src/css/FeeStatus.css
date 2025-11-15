@@ -1,0 +1,312 @@
+/* ============================================================= */
+/*  FeeStatus.css – SAME DESIGN, ANALYTICS POWER                 */
+/* ============================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  font-family: 'Inter', sans-serif;
+}
+
+.fee-status-page {
+  min-height: 100vh;
+  width: 100%;
+  background: #2563eb;
+  position: relative;
+  display: flex;
+  margin-top: 60px;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/* Particles – same floating effect */
+.particles {
+  position: fixed;
+  inset: 0;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="%23ffffff20"><animate attributeName="opacity" values="0;1;0" dur="3s" repeatCount="indefinite"/></circle></svg>');
+  background-repeat: repeat;
+  pointer-events: none;
+  animation: particleFloat 25s linear infinite;
+  opacity: 0.6;
+  z-index: 0;
+}
+@keyframes particleFloat {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-100px); }
+}
+
+/* Header */
+.page-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  z-index: 1;
+  width: 100%;
+  max-width: 900px;
+}
+.page-header h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  background: linear-gradient(to right, #ffffff, #e0f2fe);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 2px 4px rgba(0,0,0,.1);
+  animation: fadeInDown 0.8s ease-out;
+}
+.page-header h2 {
+  font-size: 1.8rem;
+  color: #e0f2fe;
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
+
+/* Container */
+.fee-status-container {
+  width: 100%;
+  max-width: 900px;
+  z-index: 1;
+  overflow-x: hidden;
+}
+
+/* Glass Card */
+.glass-card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(16px);
+  border-radius: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 2.5rem;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+  transition: all 0.4s ease;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: visible;
+}
+.glass-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.35);
+}
+
+/* Chart Overview */
+.chart-overview {
+  margin-bottom: 2.5rem;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Stats Grid – 4 cards */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+.stat-card {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+  text-align: center;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 20px rgba(0,0,0,.15);
+  transition: all 0.3s ease;
+}
+.stat-card.paid      { border-color: #86efac; background: rgba(34, 197, 94, 0.2); }
+.stat-card.pending   { border-color: #fcd34d; background: rgba(252, 211, 77, 0.2); }
+.stat-card.overdue   { border-color: #fca5a5; background: rgba(252, 165, 165, 0.2); }
+.stat-card.total     { border-color: #60a5fa; background: rgba(96, 165, 250, 0.2); }
+.stat-card span {
+  display: block;
+  color: #e0f2fe;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+.stat-card strong {
+  display: block;
+  font-size: 2.4rem;
+  font-weight: 800;
+  margin-top: 0.5rem;
+  color: white;
+}
+.stat-card.paid strong    { color: #86efac; }
+.stat-card.pending strong { color: #fcd34d; }
+.stat-card.overdue strong { color: #fca5a5; }
+.stat-card.total strong   { color: #60a5fa; }
+
+/* Search & Filter */
+.search-filter {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+.search-filter input,
+.search-filter select {
+  flex: 1;
+  min-width: 180px;
+  padding: 0.7rem 1rem;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 1rem;
+  color: white;
+  font-family: inherit;
+}
+.search-filter input::placeholder { color: #e0f2fe; }
+
+/* Fee Table */
+.fee-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: visible;
+  margin-bottom: 2rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 20px rgba(0,0,0,.15);
+  -webkit-overflow-scrolling: touch;
+}
+
+.fee-table {
+  width: 100%;
+  min-width: 800px;
+  border-collapse: collapse;
+  background: rgba(255,255,255,0.08);
+  border-radius: 1.5rem;
+  overflow: hidden;
+}
+.fee-table th,
+.fee-table td {
+  padding: 1rem 1.2rem;
+  text-align: left;
+  color: #ffffff !important;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+.fee-table th {
+  background: rgba(255,255,255,0.15);
+  font-weight: 700;
+  color: #ffffff !important;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.fee-table td {
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  color: #ffffff !important;
+}
+.fee-table tr:hover td {
+  background: rgba(255,255,255,0.08);
+}
+.status-badge {
+  padding: 0.4rem 1rem;
+  border-radius: 2rem;
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+}
+.status-badge.paid    { background: #86efac; color: #166534; }
+.status-badge.pending { background: #fcd34d; color: #92400e; }
+.status-badge.overdue { background: #fca5a5; color: #991b1b; }
+
+.amount {
+  font-weight: 600;
+  color: white;
+}
+.due-date {
+  font-size: 0.9rem;
+  color: #e0f2fe;
+}
+
+/* Pay Button */
+.pay-btn {
+  padding: 0.5rem 1rem;
+  background: linear-gradient(to right, #3b82f6, #2563eb);
+  color: white;
+  border: none;
+  border-radius: 1rem;
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.pay-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(59, 130, 246, 0.4);
+}
+
+/* Summary Bars */
+.summary-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-top: 1rem;
+  overflow-x: auto;
+  overflow-y: visible;
+}
+.bar {
+  height: 2.5rem;
+  border-radius: 1rem;
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  font-weight: 600;
+  position: relative;
+  overflow: hidden;
+}
+.bar::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 1rem;
+  opacity: 0.3;
+}
+.bar.paid::before    { background: #86efac; }
+.bar.pending::before { background: #fcd34d; }
+.bar.overdue::before { background: #fca5a5; }
+.bar span {
+  z-index: 1;
+  position: relative;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .fee-status-container { max-width: 95%; }
+  .stats-grid { grid-template-columns: 1fr 1fr; }
+  .search-filter { flex-direction: column; }
+  .fee-table { 
+    font-size: 0.9rem; 
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .fee-table th, .fee-table td { 
+    padding: 0.8rem; 
+    min-width: 100px;
+  }
+  .page-header h1 { font-size: 2.8rem; }
+  .page-header h2 { font-size: 1.5rem; }
+  .glass-card { padding: 2rem; }
+  .chart-overview {
+    padding: 1rem;
+  }
+  .chart-overview h2 {
+    font-size: 1.2rem !important;
+  }
+}

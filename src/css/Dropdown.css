@@ -1,0 +1,138 @@
+/* ============ GLOBAL CUSTOM DROPDOWN STYLES ============ */
+/* Based on Login page dropdown design */
+
+.custom-select {
+  position: relative;
+  width: 100%;
+}
+
+.select-selected {
+  padding: 0.9rem 1.2rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(4px);
+}
+
+.select-selected:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: #60a5fa;
+}
+
+.select-selected:focus {
+  outline: none;
+  border-color: #60a5fa;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.3);
+}
+
+.select-arrow {
+  font-size: 0.8rem;
+  transition: transform 0.3s ease;
+}
+
+.select-selected.open .select-arrow {
+  transform: rotate(180deg);
+}
+
+.select-options {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: rgba(30, 64, 175, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 1rem;
+  margin-top: 0.5rem;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+  overflow: hidden;
+  animation: dropdownFade 0.3s ease-out;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+@keyframes dropdownFade {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.select-option {
+  padding: 0.9rem 1.2rem;
+  color: #ffffff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.select-option:last-child {
+  border-bottom: none;
+}
+
+.select-option:hover {
+  background: rgba(255, 255, 255, 0.2);
+  padding-left: 1.5rem;
+}
+
+.select-option.selected {
+  background: rgba(96, 165, 250, 0.3);
+  font-weight: 600;
+}
+
+/* For native select elements - apply similar styling */
+select.styled-select {
+  padding: 0.9rem 1.2rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(4px);
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='white'%3E%3Cpath d='M5 7l5 5 5-5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 40px;
+}
+
+select.styled-select:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-color: #60a5fa;
+}
+
+select.styled-select:focus {
+  outline: none;
+  border-color: #60a5fa;
+  background-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.3);
+}
+
+select.styled-select option {
+  background: #1e40af;
+  color: white;
+  padding: 1rem;
+  font-weight: 500;
+}
+
+select.styled-select option:checked {
+  background: #3b82f6;
+  color: white;
+}
+
