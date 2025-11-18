@@ -5,7 +5,6 @@ import { NotificationContainer } from './components/Notification';
 import { DialogProvider } from './components/DialogProvider';
 import './css/theme.css';
 import './css/VisibilityFixes.css';
-import { SpeedInsights } from "@vercel/speed-insights/react";
 
 function SessionWrapper() {
   useEffect(() => {
@@ -36,7 +35,6 @@ function SessionWrapper() {
   return (
     <>
       <AppRouter />
-      <SpeedInsights />
       <NotificationContainer />
       <DialogProvider />
     </>
