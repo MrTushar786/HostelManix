@@ -11,11 +11,9 @@ import MaintenanceRequest from "./component/MaintenanceRequest";
 import MessMenu from "./component/MessMenu";
 import Profile from "./component/Profile";
 import ComingSoon from "./component/ComingSoon";
-import { SpeedInsights } from '@vercel/speed-insights/react';
 
 function AppRouter() {
   return (
-    <SpeedInsights />
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Login />} />
