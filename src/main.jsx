@@ -36,6 +36,7 @@ function SessionWrapper() {
   return (
     <>
       <AppRouter />
+      <SpeedInsights />
       <NotificationContainer />
       <DialogProvider />
     </>
@@ -45,7 +46,6 @@ function SessionWrapper() {
 const root = createRoot(document.getElementById('root'));
 root.render(
   <StrictMode>
-    <SpeedInsights />
     <SessionWrapper />
   </StrictMode>
 );
